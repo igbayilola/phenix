@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}Phénix{% endblock %}</title>
+
+    {% block stylesheets %}
+        <!-- Bootstrap -->
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+    {% endblock %}
+    <!-- Custom Theme Style -->
+    <link href="{{ asset('css/custom.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.salam.css') }}" rel="stylesheet">
+      
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><i class="fa fa-anchor"></i> <span>Phénix Courrier</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <!-- <h3>Courriers</h3> -->
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-sitemap"></i> Courriers <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a>Actifs<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                            <li class="sub_menu"><a href="{{ path('ca_courrier_home', {'page': '1', 'type': 'true', 'lu': 'null', 'attribuated': 'null', 'archived': 'false'}) }}">Arrivée</a>
+                            </li>
+                            <li><a href="{{ path('ca_courrier_home', {'page': '1', 'type': 'false', 'lu': 'null', 'attribuated': 'null', 'archived': 'false'}) }}">Départ</a>
+                            </li>
+                            <li><a href="{{ path('ca_courrier_home', {'page': '1', 'type': 'null', 'lu': 'false', 'attribuated': 'null', 'archived': 'false'}) }}">Non lus</a>
+                            </li>
+                            <li><a href="{{ path('ca_courrier_home', {'page': '1', 'type': 'null', 'lu': 'null', 'attribuated': 'false', 'archived': 'false'}) }}">Non attribués</a>
+                            </li>
+                            <li><a href="#">Filtre</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a>Archivés<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                           <li class="sub_menu"><a href="{{ path('ca_courrier_home', {'page': '1', 'type': 'true', 'lu': 'null', 'attribuated': 'null', 'archived': 'true'}) }}">Arrivée</a>
+                            </li>
+                            <li><a href="{{ path('ca_courrier_home', {'page': '1', 'type': 'false', 'lu': 'null', 'attribuated': 'null', 'archived': 'true'}) }}">Départ</a>
+                            </li>
+                            <li><a href="{{ path('ca_courrier_home', {'page': '1', 'type': 'null', 'lu': 'false', 'attribuated': 'null', 'archived': 'true'}) }}">Non lus</a>
+                            </li>
+                            <li><a href="{{ path('ca_courrier_home', {'page': '1', 'type': 'null', 'lu': 'null', 'attribuated': 'false', 'archived': 'true'}) }}">Non attribués</a>
+                            </li>
+                            <li><a href="#">Filtre</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a href="#level3_1">Recherche avancée</a>
+                        </li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-sitemap"></i> Attributions <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a>Actifs<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                            <li class="sub_menu"><a href="{{ path('ca_courrier_attribution_home', {'page': '1', 'type': 'true', 'status': 'null', 'archived': 'false'}) }}">Arrivée</a>
+                            </li>
+                            <li><a href="{{ path('ca_courrier_attribution_home', {'page': '1', 'type': 'false', 'status': 'null', 'archived': 'false'}) }}">Départ</a>
+                            </li>
+                            <li><a href="{{ path('ca_courrier_attribution_home', {'page': '1', 'type': 'null', 'status': '0', 'archived': 'false'}) }}">Non lus</a>
+                            </li>
+                            <li><a href="{{ path('ca_courrier_attribution_home', {'page': '1', 'type': 'null', 'status': '2', 'archived': 'false'}) }}">Non attribués</a>
+                            </li>
+                            <li><a href="#">Filtre</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a>Archivés<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                           <li class="sub_menu"><a href="{{ path('ca_courrier_attribution_home', {'page': '1', 'type': 'true', 'status': 'null', 'archived': 'true'}) }}">Arrivée</a>
+                            </li>
+                            <li><a href="{{ path('ca_courrier_attribution_home', {'page': '1', 'type': 'false', 'status': 'null', 'archived': 'true'}) }}">Départ</a>
+                            </li>
+                            <li><a href="{{ path('ca_courrier_attribution_home', {'page': '1', 'type': 'null', 'status': '0', 'archived': 'true'}) }}">Non lus</a>
+                            </li>
+                            <li><a href="{{ path('ca_courrier_attribution_home', {'page': '1', 'type': 'null', 'status': '2', 'archived': 'true'}) }}">Non attribués</a>
+                            </li>
+                            <li><a href="#">Filtre</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a href="#level3_1">Recherche avancée</a>
+                        </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="{{ asset('images/img.jpg') }}" alt="">
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="{{ path('fos_user_profile_show') }}"> Profile</a></li>
+                    <li><a href="{{ path('fos_user_change_password') }}">Changer mot de passe</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out pull-right"></i> Déconnexion</a></li>
+                  </ul>
+                </li>
+
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-green">6</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a>
+                        <span class="image"><img src="{{ asset('images/img.jpg') }}" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="{{ asset('images/img.jpg') }}" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="{{ asset('images/img.jpg') }}" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="{{ asset('images/img.jpg') }}" alt="Profile Image" /></span>
+                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="text-center">
+                        <a>
+                          <strong>See All Alerts</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Phénix - Mail Management Application by <a href="https://www.linkedin.com/in/abdoussalam-chafariou-4019b317/">Igbayilola</a> © {{ 'now'|date('Y') }}.
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+      
+    {% block javascripts %}
+        <!-- jQuery -->
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <!-- Bootstrap -->
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	{% endblock %}
+    <!-- Custom Theme Scripts -->
+    <script src="{{ asset('js/custom.min.js') }}"></script>
+      
+  </body>
+</html>

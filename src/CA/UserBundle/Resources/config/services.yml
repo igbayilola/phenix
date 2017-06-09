@@ -1,0 +1,6 @@
+services:
+    ca_user.registration.form.type:
+        class: CA\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: ca_user_registration }

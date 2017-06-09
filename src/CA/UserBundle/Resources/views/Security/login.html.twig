@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<title>Phénix, Gestion des courriers.</title>
+
+		<!-- Bootstrap -->
+		<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+		<!-- TODC Bootstrap theme 
+		<link href="css/todc-bootstrap.css" rel="stylesheet">-->
+		<!-- Signing TODC Bootstrap theme -->
+		<link href="{{ asset('css/signin.css') }}" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container">
+
+			<h2 class="form-signin-heading text-center">Connectez vous à Phénix</h2>
+
+			<div class="card card-signin">
+				<!--<img class="img-circle profile-img" src="img/avatar.png" alt="">-->
+				<img src="{{ asset('images/logo.png') }}" alt="">
+				
+                {% for key, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ key }} alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <strong>Erreur: </strong>{{ message|trans({}, 'FOSUserBundle') }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+				
+                {% if error %}
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                    </div>
+                {% endif %}
+				
+				<form class="form-signin" action="{{ path('fos_user_security_check') }}" method="post">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+					<label for="username" class="sr-only">Nom d'utilisateur</label>
+					<input type="text" id="username" class="form-control" name="_username" value="{{ last_username }}" required autofocus>
+					<label for="password" class="sr-only">Mot de passe</label>
+					<input type="password" id="password" class="form-control" name="_password" required>
+					<button class="btn btn-lg btn-block arcep-blue" type="submit" id="_submit" name="_submit">Connexion</button>
+					<div class="checkbox">
+						<a class="pull-right">Besoin d'aide?</a>
+						<label>
+							<input type="checkbox" value="on" id="remember_me" name="_remember_me"> Rester connecté
+						</label>
+					</div>
+				</form>
+			</div>
+
+		</div> <!-- /container -->
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+  </body>
+</html>

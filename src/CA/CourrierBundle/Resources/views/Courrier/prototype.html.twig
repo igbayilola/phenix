@@ -1,0 +1,29 @@
+<label class="control-label col-md-3 col-sm-3 col-xs-12'">__name__label__</label>
+<div class="col-md-9 col-sm-9 col-xs-12">
+                                            <div class="form-group">
+                                                {{ form_label(form.attributionusers.delayAt, "Délai", {'label_attr': {'class': 'control-label col-md-3 col-sm-3 col-xs-12'}}) }}
+                                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                                    <div class="control-group">
+                                                        <div class="controls">
+
+                                                                {{ form_widget(attributionusers.delayAt, {'attr': {'class': 'form-control has-feedback-left', 'id': 'single_cal3', 'aria-describedby': 'inputSuccess2Status3'}}) }}
+                                                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                                                <span id="inputSuccess2Status3" class="sr-only">(success)</span>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                {{ form_label(form.attributionusers.user, "Bénéficiaire", {'label_attr': {'class': 'control-label col-md-3 col-sm-3 col-xs-12'}}) }}
+                                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                                    {{ form_widget(form.attributionusers.user, {'attr': {'class': 'form-control '}}) }}
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                {{ form_label(form.attributionusers.instruction, "Instruction", {'label_attr': {'class': 'control-label col-md-3 col-sm-3 col-xs-12'}}) }}
+                                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                                    {{ form_widget(form.attributionusers.instruction, {'attr': {'class': 'ckeditor form-control '}}) }}
+                                                </div>
+                                            </div>
+</div>

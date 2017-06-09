@@ -1,0 +1,5 @@
+services:
+#    ca_courrier.ckeditor:
+#        class: CA\CourrierBundle\Form\Type\CkeditorType
+#        tags:
+#            - { name: form.type, alias: ckeditor }
